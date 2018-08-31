@@ -25,6 +25,7 @@ funct = runC (do yield 4; let x = 1333 in yield x; return 3)
 runMult (Y a b) = runMult (run $ b 3)
 runMult (Done)  = 42
 		       
+output = runMult $ run funct
 
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
